@@ -1,0 +1,38 @@
+{
+  "name": "dzcss",
+  "version": "test.1.0.0",
+  "description": "devmasterzone CSS & JS utilities packaged for CDN / distribution",
+  "main": "index.js",
+  "scripts": {
+    "clean": "rm -rf dist",
+    "build:css": "mkdir -p dist && npx postcss css/devmasterzone_all.css -o dist/devmasterzone_all.min.css",
+    "build:js": "mkdir -p dist && npx rollup -c rollup.config.js && npx terser dist/devmasterzone_alert.js -o dist/devmasterzone_alert.min.js --compress --mangle && npx terser dist/devmasterzone_accordion.js -o dist/devmasterzone_accordion.min.js --compress --mangle",
+    "build": "npm run clean && npm run build:css && npm run build:js",
+    "preversion": "npm run build",
+    "version:tag": "git tag -a v$(node -p \"require('./package.json').version\") -m \"release v$(node -p \"require('./package.json').version\")\" || true",
+    "release": "npm run build && npm run version:tag && git push --follow-tags origin HEAD"
+  },
+  "files": [
+    "dist",
+    "css",
+    "js",
+    "README.md"
+  ],
+  "keywords": [
+    "css",
+    "cdn",
+    "devmasterzone"
+  ],
+  "author": "devmasterzone",
+  "license": "MIT",
+  "devDependencies": {
+    "@rollup/plugin-commonjs": "^28.0.6",
+    "@rollup/plugin-node-resolve": "^16.0.1",
+    "autoprefixer": "^10.4.21",
+    "cssnano": "^7.1.1",
+    "postcss": "^8.5.6",
+    "postcss-cli": "^11.0.1",
+    "rollup": "^4.50.1",
+    "terser": "^5.44.0"
+  }
+}
