@@ -1,0 +1,107 @@
+:root{
+  --dz-primary-500: #5c6af0;
+  --dz-info-500: #06b6d4;
+  --dz-success-500:#16c47f;
+  --dz-warning-500:#f59e0b;
+  --dz-danger-500:#f43f5e;
+  --dz-muted: #6b7280;
+  --dz-surface: #fff;
+  --dz-border: rgba(11,15,26,0.06);
+  --dz-radius: 10px;
+  --dz-shadow: 0 8px 24px rgba(2,6,23,0.06);
+  --dz-transition: 300ms cubic-bezier(.2,.9,.2,1);
+}
+
+/* basic card/demo block */
+.demo-block { background:var(--dz-surface); padding:12px; border-radius:10px; border:1px solid var(--dz-border); box-shadow:var(--dz-shadow); }
+
+/* --------------------------
+   PROGRESS BAR
+   -------------------------- */
+.progress.dz-progress {
+  height:12px; background: color-mix(in srgb, var(--dz-muted) 6%, transparent); border-radius:999px; overflow:hidden; position:relative;
+  border:1px solid rgba(0,0,0,0.02);
+}
+.progress.dz-progress .bar {
+  display:block; height:100%; width:var(--value,60%); background:var(--dz-primary-500); transition:width 420ms var(--dz-transition); transform-origin:left center;
+  background-size:200% 100%;
+}
+.progress.dz-gradient .bar {
+  background: linear-gradient(90deg, var(--dz-primary-500), var(--dz-info-500));
+}
+.progress.dz-progress .buffer { position:absolute; right:0; top:0; bottom:0; width:30%; background: color-mix(in srgb,var(--dz-muted) 8%, transparent); }
+
+/* striped */
+.progress.dz-striped .bar {
+  background-image: linear-gradient(45deg, rgba(255,255,255,0.18) 25%, transparent 25%, transparent 50%, rgba(255,255,255,0.18) 50%, rgba(255,255,255,0.18) 75%, transparent 75%, transparent);
+  background-size: 24px 24px;
+  animation: stripeMove 1.1s linear infinite;
+}
+@keyframes stripeMove { to { background-position: 24px 0; } }
+
+/* indeterminate marquee */
+.progress.dz-indeterminate { height:10px; background: color-mix(in srgb,var(--dz-muted) 6%, transparent); border-radius:999px; overflow:hidden; position:relative; }
+.progress.dz-indeterminate .bar { position:absolute; left:-30%; width:40%; height:100%; background: linear-gradient(90deg, transparent, var(--dz-primary-500), transparent); animation: marquee 1.6s cubic-bezier(.2,.8,.2,1) infinite; }
+@keyframes marquee { 0% { left:-40%; } 50% { left:60%; } 100% { left:100%; } }
+
+/* multi segment */
+.progress.dz-multi { height:10px; border-radius:999px; display:flex; overflow:hidden; }
+.progress.dz-multi .seg { height:100%; display:block; transform-origin:left center; animation: segPulse 1.6s ease-in-out infinite alternate; }
+.progress.dz-multi .seg-1 { background: linear-gradient(90deg,var(--dz-primary-500), color-mix(in srgb,var(--dz-primary-500) 60%, white)); }
+.progress.dz-multi .seg-2 { background: linear-gradient(90deg,var(--dz-info-500), color-mix(in srgb,var(--dz-info-500) 60%, white)); }
+.progress.dz-multi .seg-3 { background: linear-gradient(90deg,var(--dz-success-500), color-mix(in srgb,var(--dz-success-500) 60%, white)); }
+@keyframes segPulse { from { opacity: .85; transform: scaleX(0.96); } to { opacity:1; transform: scaleX(1); } }
+
+/* label area */
+.progress-labels { display:flex; justify-content:space-between; align-items:center; margin-top:6px; }
+
+/* --------------------------
+   SPINNERS
+   -------------------------- */
+.spinner { width:44px; height:44px; border-radius:50%; display:inline-grid; place-items:center; }
+
+.spinner-ring {
+  --spinner-color: var(--dz-primary-500);
+  width:44px; height:44px; border-radius:50%;
+  border:4px solid color-mix(in srgb, var(--dz-muted) 18%, white);
+  border-top-color: var(--spinner-color);
+  animation: spin 900ms linear infinite;
+}
+@keyframes spin { to { transform: rotate(360deg); } }
+
+.spinner-dots { display:flex; gap:6px; align-items:center; }
+.spinner-dots span { width:8px; height:8px; border-radius:50%; background:var(--dz-primary-500); display:inline-block; opacity:.25; animation: dotPulse 1s ease-in-out infinite; }
+.spinner-dots span:nth-child(2){ animation-delay: .08s }
+.spinner-dots span:nth-child(3){ animation-delay: .16s }
+@keyframes dotPulse { 0%{ opacity:.25; transform: translateY(0); } 50%{ opacity:1; transform: translateY(-6px); } 100%{ opacity:.25; transform: translateY(0); } }
+
+.spinner-grow { width:28px; height:28px; border-radius:50%; background: linear-gradient(90deg,var(--dz-primary-500), color-mix(in srgb,var(--dz-primary-500)60%,white)); animation: grow 900ms ease-in-out infinite; }
+@keyframes grow { 0%{ transform:scale(.85); opacity:.85 } 50%{ transform:scale(1.15); opacity:1 } 100%{ transform:scale(.85); opacity:.85 } }
+
+.spinner-mini { width:18px; height:18px; border-radius:50%; border:2px solid color-mix(in srgb,var(--dz-muted) 18%,white); border-top-color:var(--dz-primary-500); animation: spin 900ms linear infinite; }
+
+/* --------------------------
+   SKELETONS
+   -------------------------- */
+.skeleton { background: linear-gradient(90deg, color-mix(in srgb,var(--dz-muted)6%,white), color-mix(in srgb,var(--dz-muted)12%,white)); border-radius:6px; display:block; height:12px; width:100%; position:relative; overflow:hidden; }
+.skeleton.avatar { width:48px; height:48px; border-radius:999px; }
+.skeleton.line { height:12px; border-radius:6px; }
+
+.skeleton.title { height:18px; border-radius:8px; }
+.skeleton.paragraph { height:12px; border-radius:6px; }
+
+.skeleton.btn-skel { background: linear-gradient(90deg, color-mix(in srgb,var(--dz-muted)8%,white), color-mix(in srgb,var(--dz-muted)14%,white)); }
+
+/* shimmer animation */
+.skeleton::after {
+  content: ""; position:absolute; left:-120%; top:0; bottom:0; width:40%; background: linear-gradient(90deg, transparent, rgba(255,255,255,0.5), transparent); transform: skewX(-15deg);
+  animation: shimmer 1.6s linear infinite;
+}
+@keyframes shimmer { to { left:120% } }
+
+/* pulse variant */
+.skeleton.pulse { animation: pulse 1.6s ease-in-out infinite; background: color-mix(in srgb,var(--dz-muted)8%,white) !important; }
+@keyframes pulse { 0%{ opacity:0.84 } 50%{ opacity:1 } 100%{ opacity:0.84 } }
+
+/* accessibility focus */
+.progress[role="progressbar"]:focus { outline: 3px solid color-mix(in srgb,var(--dz-primary-500) 28%, white); outline-offset: 4px; border-radius:999px; }

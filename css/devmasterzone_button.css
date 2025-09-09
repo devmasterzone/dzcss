@@ -1,0 +1,271 @@
+/* ==========================
+   BUTTONS (cleaned & corrected)
+   ========================== */
+
+/* Base button */
+.dz-btn{
+  display:inline-flex;
+  align-items:center;
+  gap:8px;
+  padding:10px 14px;
+  border-radius:var(--dz-btn-radius, 10px);
+  border:1px solid transparent;
+  cursor:pointer;
+  user-select:none;
+  transition:transform var(--dz-duration) var(--dz-ease), filter var(--dz-duration) var(--dz-ease), box-shadow var(--dz-duration) var(--dz-ease);
+  font-weight:600;
+  background:transparent;
+  color:inherit;
+  box-sizing:border-box;
+}
+
+/* Focus (accessible) — use color-mix with a fallback color for older browsers */
+.dz-btn:focus{
+  outline:3px solid color-mix(in srgb, var(--dz-primary) 18%, transparent);
+  outline-offset:2px;
+  box-shadow: 0 4px 14px color-mix(in srgb, var(--dz-primary) 8%, transparent);
+}
+
+/* Hover / active */
+.dz-btn:hover{ transform: translateY(-1px); }
+.dz-btn:active{ transform: translateY(0); filter:brightness(.98); }
+
+/* Size modifiers */
+.dz-btn-sm{ padding:6px 10px; font-size:.88rem; }
+.dz-btn-lg{ padding:14px 18px; font-size:1.05rem; }
+
+/* Icon buttons */
+.dz-btn-icon{
+  padding:8px;
+  border-radius:50%;
+  display:inline-grid;
+  place-items:center;
+  width:38px;
+  height:38px;
+  box-sizing:border-box;
+}
+
+/* Ensure icon-only rounded buttons are comfortable */
+.dz-btn-icon.dz-btn-rounded { width:42px; height:42px; padding:0; }
+
+/* Pill / rounded modifier */
+.dz-btn-rounded, .dz-btn-pill { border-radius: var(--dz-radius-full, 9999px); }
+
+/* ==========================
+   Primary (default brand)
+   ========================== */
+.dz-btn-primary{
+  background: var(--dz-primary-600);
+  color: var(--dz-white);
+  border-color: transparent;
+}
+.dz-btn-primary:active{ transform: translateY(0); filter:brightness(.98); }
+.dz-btn-outline{ background:transparent; border:1px dashed var(--dz-primary); color:var(--dz-primary); }
+
+/* SECONDARY */
+.dz-btn-secondary {
+  background: var(--dz-secondary-600);
+  color: var(--dz-white);
+  border-color: transparent;
+}
+
+/* INFO */
+.dz-btn-info {
+  background: var(--dz-info-600);  
+  color: var(--dz-white);
+  border-color: transparent;
+}
+
+/* DARK */
+.dz-btn-dark {
+  background: var(--dz-dark-800);
+  color: var(--dz-white);
+  border-color: transparent;
+}
+
+/* DANGER */
+.dz-btn-danger {
+   background: var(--dz-danger-600);
+  color: var(--dz-white);
+  border-color: transparent;
+}
+
+/* SUCCESS */
+.dz-btn-success {
+   background: var(--dz-success-600);
+  color: var(--dz-white);
+  border-color: transparent;
+}
+
+/* WARNING */
+.dz-btn-warning {
+  background: var(--dz-warning-600);
+  color: var(--dz-white);
+  border-color: transparent;
+}
+
+/* LIGHT */
+.dz-btn-light {
+  background: var(--dz-dark-300);
+  color: var(--dz-dark-600);
+  border-color: transparent;
+}
+
+/* PINK */
+.dz-btn-pink {
+  background: var(--dz-accent-pink);
+  color: var(--dz-white);
+  border-color: transparent;
+}
+
+/* ==========================
+   Primary Gradient
+   ========================== */
+.dz-btn-primary-gradient{
+  background: var(--dz-gradient-primary);
+  color: var(--dz-white);
+  border-color: transparent;
+}
+
+/* SECONDARY */
+.dz-btn-secondary-gradient {
+  background: var(--dz-gradient-secondary);
+  color: var(--dz-white);
+  border-color: transparent;
+}
+
+/* INFO */
+.dz-btn-info-gradient {
+  background: var(--dz-gradient-info);  
+  color: var(--dz-white);
+  border-color: transparent;
+}
+
+/* DARK */
+.dz-btn-dark-gradient {
+  background: var(--dz-gradient-dark);
+  color: var(--dz-white);
+  border-color: transparent;
+}
+
+/* DANGER */
+.dz-btn-danger-gradient {
+   background: var(--dz-gradient-danger);
+  color: var(--dz-white);
+  border-color: transparent;
+}
+
+/* SUCCESS */
+.dz-btn-success-gradient {
+   background: var(--dz-gradient-success);
+  color: var(--dz-white);
+  border-color: transparent;
+}
+
+/* WARNING */
+.dz-btn-warning-gradient {
+  background: var(--dz-gradient-warning);
+  color: var(--dz-white);
+  border-color: transparent;
+}
+
+/* ==========================
+   Outline variants per color
+   (keeps consistent look for outline buttons)
+   ========================== */
+.dz-btn-outline-primary { background:transparent; border:1px solid var(--dz-primary-600); color:var(--dz-primary-600); }
+.dz-btn-outline-danger  { background:transparent; border:1px solid var(--dz-danger-600);  color:var(--dz-danger-600); }
+.dz-btn-outline-secondary  { background:transparent; border:1px solid var(--dz-secondary-600);  color:var(--dz-secondary-600); }
+.dz-btn-outline-info  { background:transparent; border:1px solid var(--dz-info-600);  color:var(--dz-info-600); }
+.dz-btn-outline-success { background:transparent; border:1px solid var(--dz-success-600); color:var(--dz-success-600); }
+.dz-btn-outline-warning { background:transparent; border:1px solid var(--dz-warning-600); color:var(--dz-warning-600); }
+.dz-btn-outline-dark    { background:transparent; border:1px solid var(--dz-dark-800); color:var(--dz-dark-800); }
+.dz-btn-outline-light    { background:transparent; border:1px solid var(--dz-dark-300); color:var(--dz-dark-300); }
+
+/* ==========================
+   Variant-specific small/large sizes
+   (keep padding consistent across variants)
+   ========================== */
+.dz-btn-dark.dz-btn-sm, .dz-btn-danger.dz-btn-sm, .dz-btn-success.dz-btn-sm, .dz-btn-warning.dz-btn-sm { padding:6px 10px; font-size:.88rem; }
+.dz-btn-dark.dz-btn-lg, .dz-btn-danger.dz-btn-lg, .dz-btn-success.dz-btn-lg, .dz-btn-warning.dz-btn-lg { padding:14px 18px; font-size:1.05rem; }
+
+/* ==========================
+   Button Group helper
+   ========================== */
+.dz-btn-group{ display:inline-flex; gap:0; border-radius: calc(var(--dz-btn-radius, 10px)); overflow:hidden; }
+.dz-btn-group .dz-btn{ border-radius:0; }
+.dz-btn-group .dz-btn:first-child{ border-top-left-radius: var(--dz-btn-radius,10px); border-bottom-left-radius: var(--dz-btn-radius,10px); }
+.dz-btn-group .dz-btn:last-child{ border-top-right-radius: var(--dz-btn-radius,10px); border-bottom-right-radius: var(--dz-btn-radius,10px); }
+
+/* ==========================
+   Small accessibility tweak
+   ========================== */
+@media (prefers-reduced-motion: reduce) {
+  .dz-btn { transition: none !important; }
+}
+
+
+
+
+  /* btn-group base */
+  .dz-btn-group {
+    display: inline-flex;
+    vertical-align: middle;
+    border-radius: .6rem;
+    overflow: hidden; /* clip corner radii */
+    box-shadow: 0 6px 16px rgba(12,18,30,.04);
+  }
+  /* remove inner gaps from children */
+  .dz-btn-group > .dz-btn { margin:0; border-radius:0; }
+
+  /* first/last rounding */
+  .dz-btn-group > .dz-btn:first-child { border-top-left-radius:.6rem; border-bottom-left-radius:.6rem; }
+  .dz-btn-group > .dz-btn:last-child  { border-top-right-radius:.6rem; border-bottom-right-radius:.6rem; }
+
+  /* group dividers */
+  .dz-btn-group .dz-btn + .dz-btn { border-left:1px solid rgba(0,0,0,.06); }
+
+  /* vertical group */
+  .dz-btn-group-vertical { display:inline-flex; flex-direction:column; }
+  .dz-btn-group-vertical > .dz-btn + .dz-btn { border-left:0; border-top:1px solid rgba(0,0,0,.06); }
+
+  /* segmented toggle (mutually exclusive buttons) */
+  .dz-btn-segment [role="radio"] {
+    background: transparent;
+    padding:.55rem .9rem;
+    border:0;
+    font-weight:600;
+    color: inherit;
+  }
+  .dz-btn-segment [role="radio"][aria-checked="true"]{
+    box-shadow: inset 0 -3px 0 rgba(0,0,0,.06);
+    opacity:1;
+  }
+
+  /* toolbar (groups with spacing) */
+  .dz-btn-toolbar { display:flex; gap:.5rem; flex-wrap:wrap; align-items:center; }
+
+  /* small visual variants for groups */
+  .group-outline .dz-btn {
+    background: transparent;
+    border:1px solid rgba(0,0,0,.06);
+  }
+  .group-outline .dz-btn:hover { background: rgba(0,0,0,.03); }
+
+  /* gradient group: ensure buttons show gradient background */
+  .dz-btn.bg-gradient-primary, .dz-btn.bg-gradient-secondary,
+  .dz-btn.bg-gradient-info, .dz-btn.bg-gradient-success,
+  .dz-btn.bg-gradient-warning, .dz-btn.bg-gradient-danger, .dz-btn.bg-gradient-dark {
+    color: var(--dz-white);
+    border: 0;
+  }
+  /* when used in groups, preserve inner divider by making a thin overlay */
+  .dz-btn-group .dz-btn.bg-gradient-primary + .dz-btn.bg-gradient-primary {
+    box-shadow: none;
+  }
+
+  /* toggle active state (for JS toggles) */
+  .dz-btn.toggle-on { transform: translateY(0); box-shadow: 0 8px 20px rgba(20,30,70,.12); }
+
+  /* accessibility: focus ring stronger for keyboard users */
+  .dz-btn:focus-visible { box-shadow: 0 0 0 4px rgba(88,136,255,.12); outline: none; }

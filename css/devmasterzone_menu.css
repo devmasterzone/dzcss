@@ -1,0 +1,104 @@
+
+    /* Scope top-level trigger styles to avoid overwriting inner menu triggers */
+    .dropdown > .dz-btn {
+      padding: 8px 12px;
+      border-radius: 8px;
+      background:transparent;
+      border: 1px solid var(--dz-border);
+      cursor: pointer;
+      position: relative; /* stacking context */
+      z-index: calc(var(--dz-z) + 50);
+      font-size: 14px;
+    }
+
+    /* Dropdown basics */
+    .dropdown { position: relative; display: inline-block; }
+    .dropdown-menu {
+      position: absolute;
+      top: calc(100% + 8px);
+      left: 0;
+      min-width: 180px;
+      background: var(--dz-surface);
+      border: 1px solid var(--dz-border);
+      border-radius: var(--dz-radius);
+      padding: 6px;
+      box-shadow: var(--dz-shadow);
+      display: none;
+      z-index: var(--dz-z);
+      transition: transform .14s ease, opacity .14s ease;
+      transform-origin: top left;
+      opacity: 0; transform: translateY(-8px) scale(.98);
+
+      /* important for nested submenus */
+      overflow: visible;
+      pointer-events: auto;
+    }
+
+    .dropdown.open .dropdown-menu { display:block; opacity:1; transform: translateY(0) scale(1); }
+
+    /* Menu items */
+    .dropdown-menu a,
+    .dropdown-menu button.submenu-trigger {
+      display:block;
+      padding: 8px 12px;
+      border-radius: 6px;
+      text-decoration: none;
+      color: var(--dz-text);
+      background: transparent;
+      border: none;
+      text-align: left;
+      cursor: pointer;
+      font-size: 14px;
+      pointer-events: auto;
+      width: 100%;
+    }
+    .dropdown-menu a:hover,
+    .dropdown-menu button.submenu-trigger:hover { background: color-mix(in srgb, var(--dz-primary) 8%, transparent); }
+
+    /* nested submenu parent */
+    .menu-item-has-submenu {
+      position: relative; /* anchors submenu */
+      z-index: calc(var(--dz-z) + 20);
+    }
+
+    .submenu {
+      position: absolute;
+      top: 0;
+      left: calc(100% + 8px);
+      min-width: 160px;
+      background: var(--dz-surface);
+      border: 1px solid var(--dz-border);
+      border-radius: 8px;
+      padding: 6px;
+      box-shadow: var(--dz-shadow);
+      display: none;
+      opacity: 0;
+      transform: translateY(-8px) scale(.98);
+      transition: transform .12s ease, opacity .12s ease;
+      z-index: calc(var(--dz-z) + 200);
+      pointer-events: auto;
+    }
+    .menu-item-has-submenu.open > .submenu { display:block; opacity:1; transform: translateY(0) scale(1); }
+
+    /* Mega menu */
+    .dropdown-menu.mega {
+      padding: 12px;
+      min-width: 520px;
+      max-width: 920px;
+    }
+    .mega-grid { display:grid; grid-template-columns: repeat(4,1fr); gap:12px; }
+    .mega-grid h4 { margin:0 0 6px 0; font-size:13px; color:var(--dz-muted); }
+    .mega-card { background:#f8fafc; padding:10px; border-radius:8px; font-size:13px; }
+
+    /* Responsive */
+    @media (max-width:760px){
+      .dropdown-menu.mega { min-width: 90vw; left: auto; right: 0; }
+      .mega-grid { grid-template-columns: repeat(2,1fr); }
+      .submenu { left: auto; right: calc(100% + 8px); } /* flip on small screens */
+    }
+
+    /* focus outlines */
+    [role="menuitem"]:focus { outline: 2px solid color-mix(in srgb, var(--dz-primary) 35%, white); outline-offset: 2px; }
+
+    /* small helper spacing inside card for demo */
+    .demo-col { min-width:220px; }

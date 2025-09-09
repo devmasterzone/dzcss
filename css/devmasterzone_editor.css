@@ -1,0 +1,102 @@
+/* --- MODAL --- */
+.modal {
+  position: fixed;           /* overlay on top of everything */
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  background: #fff;
+  border-radius: 12px;
+  padding: 16px;
+  box-shadow: 0 18px 50px rgba(6,20,40,0.12);
+  z-index: 9999;             /* ensure on top */
+  min-width: 320px;
+  max-width: 90%;
+  width: 420px;              /* comfortable modal width */
+  transition: opacity 180ms ease, transform 180ms ease;
+  opacity: 1;
+}
+
+/* hidden state */
+.modal.hidden { 
+  opacity: 0;
+  pointer-events: none;
+  transform: translate(-50%, -48%) scale(0.98);
+  display: block; /* keep in layout for transitions; we only visually hide it */
+}
+
+/* modal header/title */
+.modal > [id^="linkModalTitle"], .modal > [id^="tableModalTitle"]{
+  font-weight: 700;
+  margin-bottom: 10px;
+  font-size: 15px;
+}
+
+/* compact key/value rows */
+.kv {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+  margin-bottom: 10px;
+  font-size: 13px;
+}
+.kv label{ min-width: 44px; color:var(--muted); font-size:13px; }
+
+/* tiny inputs used in modals */
+.tiny-input {
+  border-radius: 8px;
+  padding: 8px 10px;
+  border: 1px solid rgba(11,15,26,.07);
+  background: #fff;
+  font-size: 13px;
+  box-shadow: none;
+  outline: none;
+  width: 100%;
+  box-sizing: border-box;
+}
+.tiny-input:focus{ box-shadow: 0 6px 20px rgba(92,106,240,0.06); border-color: rgba(92,106,240,0.18) }
+
+/* better modal buttons alignment */
+.modal .btn { min-width: 80px; height:36px; font-size:13px }
+.modal .btn.small { min-width: 72px }
+
+/* --- TOOLBAR adjustments --- */
+.toolbar {
+  display:flex;
+  gap:8px;
+  align-items:center;
+  padding:10px 12px;
+  background:var(--toolbar-bg);
+  border-bottom:1px solid var(--border);
+  flex-wrap:wrap;
+  row-gap:8px; /* better wrap spacing */
+}
+
+.tool-group { display:flex; gap:6px; align-items:center; }
+
+.btn {
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  min-width:36px; height:36px; padding:8px;
+  border-radius:8px;
+  font-weight:600; font-size:13px;
+  background:#fff; border:1px solid rgba(11,15,26,.06);
+}
+
+/* smaller icon-only toolbar buttons */
+.btn.small{ min-width:32px; height:32px; font-size:12px }
+.btn .label{ display:none }
+
+/* color pickers — make them smaller and aligned */
+.color-picker { width:30px; height:30px; padding:4px; border-radius:8px; }
+
+/* select compactness */
+.select{ min-width:96px; padding:8px 10px; font-size:13px }
+
+/* --- CARD / EDITOR spacing --- */
+.card { padding: 0; overflow: visible; } /* header/toolbar already handle padding */
+.header { padding: 12px 16px; gap:6px; }
+.editor { min-height:260px; padding:18px; font-size:15px; border-radius:0 0 12px 12px }
+
+/* OUTPUT improvements */
+.output{ max-height: 260px; padding:12px; border-radius:8px; margin-top: 14px }

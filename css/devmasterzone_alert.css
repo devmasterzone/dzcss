@@ -1,0 +1,197 @@
+
+/* Base alert / toast */
+.dz-alert {
+  /* --accent: var(--dz-info-600); */
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 14px 14px;
+  border-radius: calc(var(--dz-radius) - 2px);
+  font-size: 0.98rem;
+  line-height: 1.35;
+  pointer-events: auto;
+  overflow: hidden;
+  transform-origin: top right;
+  transition: transform var(--dz-duration) var(--dz-ease),
+    opacity var(--dz-duration) var(--dz-ease);
+}
+
+/* entrance/exit helpers */
+.dz-alert.is-enter {
+  transform: translateY(-8px) scale(0.995);
+  opacity: 0;
+}
+.dz-alert.is-enter.dz-show {
+  transform: translateY(0) scale(1);
+  opacity: 1;
+}
+.dz-alert.is-exit {
+  transform: translateY(-6px) scale(0.995);
+  opacity: 0;
+}
+
+/* Icon circle */
+.dz-icon {
+  width: 21px;
+  height: 21px;
+  min-width: 21px;
+  border-radius: 9999px;
+  display: grid;
+  place-items: center;
+  flex: 0 0 21px;
+  box-shadow: inset 0 -6px 12px rgba(0, 0, 0, 0.04);
+}
+
+/* Icon svg default */
+.dz-icon svg {
+  width: 18px;
+  height: 18px;
+  display: block;
+}
+
+/* Content layout */
+.dz-body {
+  flex: 1 1 auto;
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+.dz-text {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+.dz-title {
+  font-weight: 500;
+  font-size: 0.99rem;
+  color: inherit;
+  display: block;
+}
+.dz-message {
+  font-size: 0.92rem;
+}
+
+/* Actions + close */
+.dz-actions {
+  display: flex;
+  gap: 8px;
+  align-items: center;
+}
+.dz-actions .dz-btn {
+  -webkit-tap-highlight-color: transparent;
+  cursor: pointer;
+  padding: 8px 10px;
+  border-radius: 8px;
+  border: 0;
+  font-weight: 700;
+  font-size: 0.86rem;
+}
+.dz-close {
+  background: transparent;
+  border: 0;
+  font-size: 16px;
+  line-height: 1;
+  padding: 6px;
+  border-radius: 8px;
+  cursor: pointer;
+  color: inherit;
+}
+
+/* Progress bar (auto-dismiss visual) */
+.dz-progress {
+  height: 3px;
+  width: 100%;
+  background: linear-gradient(90deg, rgba(0, 0, 0, 0.04), rgba(0, 0, 0, 0.02));
+  margin-top: 8px;
+  border-radius: 4px;
+  overflow: hidden;
+}
+.dz-progress > i {
+  display: block;
+  height: 100%;
+  width: 100%;
+  transform-origin: left center;
+  transform: scaleX(1);
+  transition: transform linear;
+  background: linear-gradient(
+    90deg,
+    rgba(255, 255, 255, 0.06),
+    rgba(255, 255, 255, 0.02)
+  );
+}
+
+/* Variants: ghost (light), solid (accent bg), bordered (outline) */
+
+/* Info */
+.dz-alert.info {
+  --accent: var(--dz-info-100);
+  background-color: var(--accent);
+  color: var(--dz-info-700) !important;
+  border: 1px solid var(--dz-info-200) !important;
+}
+.dz-alert.info .dz-icon {
+  background: linear-gradient(180deg, var(--dz-info-600), #2b6fd8);
+}
+
+/* Success */
+.dz-alert.success {
+  --accent: var(--dz-success-100);
+  background-color: var(--accent);
+  color: var(--dz-success-700) !important;
+  border: 1px solid var(--dz-success-200) !important;
+}
+.dz-alert.success .dz-icon {
+  background: linear-gradient(180deg, var(--dz-success-600), #0ea56b);
+}
+
+
+/* Danger */
+.dz-alert.danger {
+  --accent: var(--dz-danger-100);
+  background-color: var(--accent);
+  color: var(--dz-danger-700) !important;
+  border: 1px solid var(--dz-danger-200) !important;
+}
+.dz-alert.danger .dz-icon {
+  background: linear-gradient(180deg, var(--dz-danger-600), #c2133e);
+}
+
+/* Warning */
+.dz-alert.warning {
+  --accent: var(--dz-warning-100);
+  background-color: var(--accent);
+  color: var(--dz-warning-700) !important;
+  border: 1px solid var(--dz-warning-200) !important;
+}
+.dz-alert.warning .dz-icon {
+  background: linear-gradient(180deg, var(--dz-warning-600), #b55e09);
+}
+
+/* Dark */
+.dz-alert.dark {
+  --accent: var(--dz-dark-100);
+  background-color: var(--accent);
+  color: var(--dz-dark-700) !important;
+  border: 1px solid var(--dz-dark-200) !important;
+}
+.dz-alert.dark .dz-icon {
+  background: linear-gradient(180deg, var(--dz-dark-600), #0b1319);
+  color: white;
+}
+
+/* small responsive */
+@media (max-width: 520px) {
+  .dz-alert {
+    padding: 12px;
+    gap: 10px;
+  }
+  .dz-icon {
+    width: 21px;
+    height: 21px;
+    min-width: 21px;
+  }
+  .dz-actions {
+    margin-left: 8px;
+  }
+}

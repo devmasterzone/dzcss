@@ -1,0 +1,325 @@
+/* ==========================
+   THEME TOKENS
+   ========================== */
+
+:root {
+  /* Core surfaces */
+   --dz-white:#ffffff;
+   --dz-surface: var(--dz-white);
+   --dz-bg: #f8fafc;
+   --dz-border: #e5e7eb;
+   --dz-muted: #6b7280;
+   --dz-text: #0f172a;
+   --dz-shadow: 0 6px 18px rgba(17,24,39,0.08);
+
+  --dz-radius: 12px;
+  --dz-duration: 260ms;
+  --dz-ease: cubic-bezier(.2,.9,.2,1);
+  --dz-shadow-soft: 0 6px 20px rgba(15,23,42,0.08);
+  --dz-shadow-strong: 0 10px 38px rgba(15,23,42,0.12);
+   --gutter: 16px; /* default gap size */
+
+  /* Primary */
+  --dz-primary-50:#f5f7ff;
+  --dz-primary-100:#e8ebff;
+  --dz-primary-200:#cdd4ff;
+  --dz-primary-300:#aab6ff;
+  --dz-primary-400:#7c89f7;
+  --dz-primary-500:#5c6af0;
+  --dz-primary-600:#4a55e5;
+  --dz-primary-700:#3a44c7;
+  --dz-primary-800:#2e359b;
+  --dz-primary-900:#242a75;
+
+/* Secondary (lavender-gray, distinct from dark) */
+--dz-secondary-50:  #f5f3ff;
+--dz-secondary-100: #ede9fe;
+--dz-secondary-200: #ddd6fe;
+--dz-secondary-300: #c4b5fd;
+--dz-secondary-400: #a78bfa;
+--dz-secondary-500: #8b5cf6;  /* main secondary */
+--dz-secondary-600: #7c3aed;
+--dz-secondary-700: #6d28d9;
+--dz-secondary-800: #5b21b6;
+--dz-secondary-900: #4c1d95;
+
+
+/* Info (cyan/teal, kept distinct) */
+--dz-info-50:#ecfeff;
+--dz-info-100:#cffafe;
+--dz-info-200:#a5f3fc;
+--dz-info-300:#67e8f9;
+--dz-info-400:#22d3ee;
+--dz-info-500:#06b6d4;   /* main info */
+--dz-info-600:#0891b2;
+--dz-info-700:#0e7490;
+--dz-info-800:#155e75;
+--dz-info-900:#164e63;
+
+
+
+  /* Success */
+  --dz-success-50:#f0fdf4;
+  --dz-success-100:#dcfce7;
+  --dz-success-200:#bbf7d0;
+  --dz-success-300:#86efac;
+  --dz-success-400:#4ade80;
+  --dz-success-500:#16c47f;
+  --dz-success-600:#119968;
+  --dz-success-700:#0f7a55;
+  --dz-success-800:#0d5c40;
+  --dz-success-900:#0b4633;
+
+  /* Danger */
+  --dz-danger-50:#fff1f3;
+  --dz-danger-100:#ffe4e8;
+  --dz-danger-200:#fecdd3;
+  --dz-danger-300:#fda4af;
+  --dz-danger-400:#fb7185;
+  --dz-danger-500:#f43f5e;
+  --dz-danger-600:#e11d48;
+  --dz-danger-700:#be123c;
+  --dz-danger-800:#9f1239;
+  --dz-danger-900:#881337;
+
+  /* Warning */
+  --dz-warning-50:#fffbea;
+  --dz-warning-100:#fef3c7;
+  --dz-warning-200:#fde68a;
+  --dz-warning-300:#fcd34d;
+  --dz-warning-400:#fbbf24;
+  --dz-warning-500:#f59e0b;
+  --dz-warning-600:#d97706;
+  --dz-warning-700:#b45309;
+  --dz-warning-800:#92400e;
+  --dz-warning-900:#78350f;
+
+  /* Dark / Gray scale */
+  --dz-dark-50:#f9fafb;
+  --dz-dark-100:#f3f4f6;
+  --dz-dark-200:#e5e7eb;
+  --dz-dark-300:#d1d5db;
+  --dz-dark-400:#9ca3af;
+  --dz-dark-500:#6b7280;
+  --dz-dark-600:#4b5563;
+  --dz-dark-700:#374151;
+  --dz-dark-800:#1f2937;
+  --dz-dark-900:#111827;
+
+  /* Accents */
+  --dz-accent-pink:#d946ef;
+  --dz-accent-blue:#3b82f6;
+  --dz-accent-green:#10b981;
+  --dz-accent-orange:#fb923c;
+
+  /* Gradients */
+  --dz-gradient-primary:   linear-gradient(135deg,#5c6af0,#06b6d4);   /* indigo → cyan */
+--dz-gradient-secondary: linear-gradient(135deg,#6d28d9,#a78bfa);   /* lavender → deep violet */
+--dz-gradient-info:      linear-gradient(135deg,#06b6d4,#0e7490);   /* cyan → teal */
+--dz-gradient-success:   linear-gradient(135deg,#16c47f,#22d3ee);   /* green → aqua */
+--dz-gradient-danger:    linear-gradient(135deg,#f43f5e,#d946ef);   /* red → pink/purple */
+--dz-gradient-warning:   linear-gradient(135deg,#f59e0b,#fb923c);   /* amber → orange */
+--dz-gradient-dark:      linear-gradient(135deg,#6b7280 0%,#374151 50%,#111827 100%);  
+
+  
+--dz-gradient-soft-primary:   linear-gradient(135deg,#f5f7ff 0%,#cdd4ff 100%);
+--dz-gradient-soft-secondary: linear-gradient(135deg,#f5f3ff 0%,#ddd6fe 100%);
+--dz-gradient-soft-info:      linear-gradient(135deg,#ecfeff 0%,#a5f3fc 100%);
+--dz-gradient-soft-success:   linear-gradient(135deg,#f0fdf4 0%,#bbf7d0 100%);
+--dz-gradient-soft-danger:    linear-gradient(135deg,#fff1f3 0%,#fecdd3 100%);
+--dz-gradient-soft-warning:   linear-gradient(135deg,#fffbea 0%,#fde68a 100%);
+--dz-gradient-soft-dark:      linear-gradient(135deg,#f9fafb 0%,#d1d5db 100%);
+
+  /* Typography */
+  --dz-font-sans: ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
+  --dz-font-mono: ui-monospace, SFMono-Regular, Menlo, Monaco, "Roboto Mono", "Courier New", monospace;
+  --dz-font-size-base: 16px;
+  --dz-line-height-base: 1.5;
+
+  /* Motion */
+  --dz-duration-fast: 140ms;
+  --dz-duration: 240ms;
+  --dz-ease: cubic-bezier(.4,0,.2,1);
+
+  /* Radius & Spacing */
+  --dz-radius-sm: 6px;
+  --dz-radius: 12px;
+  --dz-radius-lg: 18px;
+  --dz-gap-xs: 6px;
+  --dz-gap-sm: 10px;
+  --dz-gap: 16px;
+  --dz-gap-lg: 24px;
+
+  /* Components */
+  --dz-btn-padding: 12px 16px;
+  --dz-btn-radius: var(--dz-radius);
+  --dz-card-padding: 16px;
+  --dz-card-radius: var(--dz-radius);
+  --dz-input-padding: 12px;
+  --dz-input-radius: var(--dz-radius-sm);
+  --dz-alert-padding: 16px 20px;
+  --dz-alert-radius: var(--dz-radius-sm);
+
+  --dz-avatar-radius: 9999px;
+
+    /* All-sides padding (px) */
+  --dz-p-0: 0;
+  --dz-p-1: 4px;
+  --dz-p-2: 8px;
+  --dz-p-3: 12px;
+  --dz-p-4: 16px;
+  --dz-p-5: 20px;
+  --dz-p-6: 24px;
+  --dz-p-7: 28px;
+  --dz-p-8: 32px;
+  --dz-p-9: 36px;
+  --dz-p-10: 40px;
+
+  /* Axis-specific padding (shorthand values) */
+  --dz-py-0: 0 0;
+  --dz-py-1: 4px 0;
+  --dz-py-2: 8px 0;
+  --dz-py-3: 12px 0;
+  --dz-py-4: 16px 0;
+  --dz-py-5: 20px 0;
+
+  --dz-px-0: 0 0;
+  --dz-px-1: 0 4px;
+  --dz-px-2: 0 8px;
+  --dz-px-3: 0 12px;
+  --dz-px-4: 0 16px;
+  --dz-px-5: 0 20px;
+
+  /* Side-specific padding (logical properties recommended) */
+  --dz-pt-0: 0;
+  --dz-pt-1: 4px;
+  --dz-pt-2: 8px;
+  --dz-pt-3: 12px;
+  --dz-pt-4: 16px;
+  --dz-pt-5: 20px;
+
+  --dz-pb-0: 0;
+  --dz-pb-1: 4px;
+  --dz-pb-2: 8px;
+  --dz-pb-3: 12px;
+  --dz-pb-4: 16px;
+  --dz-pb-5: 20px;
+
+  --dz-pl-0: 0;
+  --dz-pl-1: 4px;
+  --dz-pl-2: 8px;
+  --dz-pl-3: 12px;
+  --dz-pl-4: 16px;
+  --dz-pl-5: 20px;
+
+  --dz-pr-0: 0;
+  --dz-pr-1: 4px;
+  --dz-pr-2: 8px;
+  --dz-pr-3: 12px;
+  --dz-pr-4: 16px;
+  --dz-pr-5: 20px;
+
+  /* ---------------------------
+     Margin scale (px)
+     --------------------------- */
+  --dz-m-0: 0;
+  --dz-m-1: 4px;
+  --dz-m-2: 8px;
+  --dz-m-3: 12px;
+  --dz-m-4: 16px;
+  --dz-m-5: 20px;
+  --dz-m-6: 24px;
+  --dz-m-7: 28px;
+  --dz-m-8: 32px;
+  --dz-m-9: 36px;
+  --dz-m-10: 40px;
+
+  /* Axis-specific margin (shorthand values) */
+  --dz-my-0: 0 0;
+  --dz-my-1: 4px 0;
+  --dz-my-2: 8px 0;
+  --dz-my-3: 12px 0;
+  --dz-my-4: 16px 0;
+  --dz-my-5: 20px 0;
+
+  --dz-mx-0: 0 0;
+  --dz-mx-1: 0 4px;
+  --dz-mx-2: 0 8px;
+  --dz-mx-3: 0 12px;
+  --dz-mx-4: 0 16px;
+  --dz-mx-5: 0 20px;
+
+  /* Side-specific margin (logical properties recommended) */
+  --dz-mt-0: 0;
+  --dz-mt-1: 4px;
+  --dz-mt-2: 8px;
+  --dz-mt-3: 12px;
+  --dz-mt-4: 16px;
+  --dz-mt-5: 20px;
+
+  --dz-mb-0: 0;
+  --dz-mb-1: 4px;
+  --dz-mb-2: 8px;
+  --dz-mb-3: 12px;
+  --dz-mb-4: 16px;
+  --dz-mb-5: 20px;
+
+  --dz-ml-0: 0;
+  --dz-ml-1: 4px;
+  --dz-ml-2: 8px;
+  --dz-ml-3: 12px;
+  --dz-ml-4: 16px;
+  --dz-ml-5: 20px;
+
+  --dz-mr-0: 0;
+  --dz-mr-1: 4px;
+  --dz-mr-2: 8px;
+  --dz-mr-3: 12px;
+  --dz-mr-4: 16px;
+  --dz-mr-5: 20px;
+
+  /* Auto helpers */
+  --dz-mx-auto: auto;
+  --dz-my-auto: auto;
+
+  /* ---------------------------
+     Negative margin helpers (computed)
+     --------------------------- */
+  --dz-neg-m-1: calc(-1 * var(--dz-m-1));
+  --dz-neg-m-2: calc(-1 * var(--dz-m-2));
+  --dz-neg-m-3: calc(-1 * var(--dz-m-3));
+  --dz-neg-m-4: calc(-1 * var(--dz-m-4));
+  --dz-neg-m-5: calc(-1 * var(--dz-m-5));
+
+  --dz-neg-mt-1: calc(-1 * var(--dz-mt-1));
+  --dz-neg-mb-1: calc(-1 * var(--dz-mb-1));
+  --dz-neg-ml-1: calc(-1 * var(--dz-ml-1));
+  --dz-neg-mr-1: calc(-1 * var(--dz-mr-1));
+
+  /* ---------------------------
+     Logical aliases (helpful for RTL)
+     --------------------------- */
+  --dz-padding-block-1: var(--dz-py-1);
+  --dz-padding-inline-1: var(--dz-px-1);
+  --dz-margin-block-1: var(--dz-my-1);
+  --dz-margin-inline-1: var(--dz-mx-1);
+
+  /* ---------------------------
+     Convenience composite tokens (component defaults)
+     --------------------------- */
+  --dz-card-padding: var(--dz-p-4);   /* 16px */
+  --dz-btn-padding: var(--dz-p-3);    /* 12px */
+  --dz-input-padding: var(--dz-p-3);  /* 12px */
+}
+
+/* Apply overrides when the html root has the class */
+html.dz-dark, :root.dz-dark {
+  --bg:#071024;--surface:#07182b;--text:#e6eef8;--muted:#9aa6b2;
+  color-scheme: dark;
+}
+
+/* Optional: explicit light class (keeps consistency) */
+html.dz-light, :root.dz-light {
+  --bg:#f8fafc; --surface:#ffffff; --text:#0f172a; --muted:#6b7280;
+  color-scheme: light;
+}

@@ -1,0 +1,129 @@
+/* Basic layout for demo */
+.demo-badges { font-family: Inter, system-ui, Arial; margin:18px auto; color:#0b1220; }
+.demo-badges h3{ margin:0 0 8px; }
+.demo-badges .row { display:flex; gap:18px; flex-wrap:wrap; }
+.demo-badges .col { flex:1; min-width:260px; }
+
+/* Row items */
+.row-items { display:flex; gap:10px; align-items:center; flex-wrap:wrap; }
+
+/* Core badge */
+.badge {
+  display:inline-flex;
+  align-items:center;
+  gap:.5ch;
+  font-weight:600;
+  font-size:13px;
+  line-height:1;
+  padding:.35rem .6rem;
+  border-radius:8px;
+  color: #fff;
+  background: #111;
+  border: 1px solid transparent;
+  box-shadow: 0 2px 8px rgba(11,15,26,0.04);
+  user-select:none;
+}
+
+/* Colors (use your design tokens instead) */
+.badge-primary   { background:#5c6af0; color:#fff; border-color: color-mix(in srgb, #5c6af0 70%, black); }
+.badge-secondary { background:#64748b; color:#fff; border-color: color-mix(in srgb, #64748b 70%, black); }
+.badge-info      { background:#06b6d4; color:#fff; }
+.badge-success   { background:#16c47f; color:#fff; }
+.badge-warning   { background:#f59e0b; color:#101010; }
+.badge-danger    { background:#f43f5e; color:#fff; }
+.badge-dark      { background:#111827; color:#fff; }
+.badge-muted     { background:#9aa6b2; color:#071124; }
+
+/* Outline variant */
+.badge-outline {
+  background:transparent;
+  color:inherit;
+  border-width:1px;
+  box-shadow:none;
+  padding:.32rem .55rem;
+  background-clip:padding-box;
+}
+.badge-outline.badge-primary { color:#3b3fe6; border-color: rgba(92,106,240,0.12); }
+.badge-outline.badge-dark { color:#374151; border-color: rgba(55,65,81,0.12); }
+
+/* Ghost / subtle */
+.badge-ghost {
+  background: color-mix(in srgb, var(--badge-bg, #fff) 92%, transparent);
+  color:inherit;
+  border-color: transparent;
+  box-shadow:none;
+}
+
+/* Pill (rounded) */
+.badge-pill { border-radius:999px; padding:.35rem .9rem; }
+
+/* Dot / status (dot on left) */
+.badge-dot {
+  padding-left: .6rem;
+  position:relative;
+  border-radius:10px;
+  gap:.6ch;
+}
+.badge-dot::before{
+  content:"";
+  width:10px; height:10px; border-radius:50%;
+  display:inline-block; margin-right:.45rem;
+  background: currentColor;
+  box-shadow:0 0 0 3px color-mix(in srgb, currentColor 10%, transparent);
+  transform: translateY(0);
+}
+.badge-dot.badge-success::before { background:#16c47f; }
+.badge-dot.badge-warning::before { background:#f59e0b; }
+.badge-dot.badge-danger::before { background:#f43f5e; }
+.badge-dot.badge-muted::before { background:#9aa6b2; }
+
+/* Icon badges */
+.badge-icon { display:inline-flex; align-items:center; gap:.5rem; padding:.36rem .7rem; }
+.badge-icon svg { width:14px; height:14px; display:inline-block; opacity:.95 }
+
+/* Counter (small number) */
+.badge-counter {
+  display:inline-block; min-width:20px; height:20px; padding:0 6px; border-radius:999px;
+  background:rgba(255,255,255,0.12); color:inherit; font-weight:700; font-size:12px; line-height:20px; text-align:center;
+  margin-left:.4rem;
+}
+
+/* Link-like badge */
+.badge-link { display:inline-flex; align-items:center; gap:.4rem; text-decoration:none; cursor:pointer; user-select:none; }
+
+/* Gradient badge (customizable via --g) */
+.badge-gradient {
+  color:white;
+  background: var(--g, linear-gradient(135deg,#7c5cff,#06b6d4));
+  border:1px solid rgba(255,255,255,0.06);
+  box-shadow: 0 6px 22px rgba(0,0,0,0.08);
+}
+
+/* Glow & pulse */
+.badge-glow {
+  position:relative;
+  transition:transform .12s ease;
+}
+.badge-glow::after{
+  content:""; position:absolute; inset:0; border-radius:8px;
+  box-shadow:0 8px 28px rgba(92,106,240,0.14); opacity:.85; filter:blur(14px);
+  z-index:-1;
+}
+.badge-pulse {
+  animation: badge-pulse 1.8s infinite;
+}
+@keyframes badge-pulse {
+  0% { transform:scale(1); box-shadow:0 0 0 0 rgba(22,196,127,0.18) }
+  70% { transform:scale(1.02); box-shadow:0 0 0 10px rgba(22,196,127,0.02) }
+  100% { transform:scale(1); box-shadow:0 0 0 0 rgba(22,196,127,0) }
+}
+
+/* Sizes */
+.badge-sm { font-size:12px; padding:.2rem .45rem; border-radius:7px; }
+.badge-lg { font-size:14px; padding:.5rem .85rem; border-radius:10px; }
+
+/* Accessibility focus */
+.badge:focus, .badge-link:focus { outline:3px solid color-mix(in srgb, #5c6af0 24%, white); outline-offset:3px; }
+
+/* Small utility */
+.row-items > .badge:first-child { margin-left:0; }

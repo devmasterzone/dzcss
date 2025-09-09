@@ -1,0 +1,136 @@
+/* -------------------------
+   Card system — token-driven
+   ------------------------- */
+
+/* Base card */
+.card {
+  background: var(--dz-surface);
+  border: 1px solid var(--dz-border, color-mix(in oklab, var(--dz-contrast) 8%, transparent));
+  border-radius: var(--dz-card-radius, 12px);
+  box-shadow: 0 6px 18px rgba(15,20,30,0.06);
+  padding: var(--dz-card-padding, 16px);
+  transition: transform .12s ease, box-shadow .12s ease;
+  display:flex;
+  flex-direction:column;
+  gap:8px;
+}
+.card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 12px 32px rgba(15,20,30,0.10);
+}
+
+.card-header {
+  font-weight:700;
+  margin:0;
+  font-size:1rem;
+}
+.card-body {
+  color: var(--dz-muted);
+  font-size: .95rem;
+  line-height:1.45;
+}
+.card-footer {
+  margin-top: 8px;
+  display:flex;
+  justify-content:flex-end;
+  gap:.5rem;
+}
+
+/* -------------------------
+   Variant helpers (borders)
+   ------------------------- */
+/* border color uses the 500 or 600 shade for visibility */
+.card-primary        { border-color: var(--dz-primary-500); }
+.card-secondary      { border-color: var(--dz-secondary-500); }
+.card-info           { border-color: var(--dz-info-500); }
+.card-success        { border-color: var(--dz-success-500); }
+.card-danger         { border-color: var(--dz-danger-500); }
+.card-warning        { border-color: var(--dz-warning-500); }
+.card-dark           { border-color: var(--dz-dark-700); }
+
+/* subtle header accent line */
+.card-primary  .card-header::after  { content:""; display:block; height:3px; width:48px; margin-top:8px; background: linear-gradient(90deg,var(--dz-primary-400),var(--dz-primary-600)); border-radius:3px; }
+.card-secondary .card-header::after { content:""; display:block; height:3px; width:48px; margin-top:8px; background: linear-gradient(90deg,var(--dz-secondary-400),var(--dz-secondary-600)); border-radius:3px; }
+.card-info .card-header::after     { content:""; display:block; height:3px; width:48px; margin-top:8px; background: linear-gradient(90deg,var(--dz-info-400),var(--dz-info-600)); border-radius:3px; }
+.card-success .card-header::after  { content:""; display:block; height:3px; width:48px; margin-top:8px; background: linear-gradient(90deg,var(--dz-success-400),var(--dz-success-600)); border-radius:3px; }
+.card-danger .card-header::after   { content:""; display:block; height:3px; width:48px; margin-top:8px; background: linear-gradient(90deg,var(--dz-danger-400),var(--dz-danger-600)); border-radius:3px; }
+.card-warning .card-header::after  { content:""; display:block; height:3px; width:48px; margin-top:8px; background: linear-gradient(90deg,var(--dz-warning-400),var(--dz-warning-600)); border-radius:3px; }
+.card-dark .card-header::after     { content:""; display:block; height:3px; width:48px; margin-top:8px; background: linear-gradient(90deg,var(--dz-dark-500),var(--dz-dark-700)); border-radius:3px; }
+
+/* -------------------------
+   Filled variants (soft backgrounds)
+   Use soft gradients or -50 shade for subtle fill
+   ------------------------- */
+.card-primary-filled {
+  background: var(--dz-gradient-soft-primary, var(--dz-primary-50));
+  border-color: var(--dz-primary-500);
+  color: var(--dz-contrast);
+}
+.card-primary-filled .card-body { color: color-mix(in oklab, var(--dz-primary-700) 40%, var(--dz-contrast)); }
+
+.card-secondary-filled {
+  background: var(--dz-gradient-soft-secondary, var(--dz-secondary-50));
+  border-color: var(--dz-secondary-500);
+  color: var(--dz-contrast);
+}
+.card-secondary-filled .card-body { color: color-mix(in oklab, var(--dz-secondary-700) 36%, var(--dz-contrast)); }
+
+.card-info-filled {
+  background: var(--dz-gradient-soft-info, var(--dz-info-50));
+  border-color: var(--dz-info-500);
+  color: var(--dz-contrast);
+}
+.card-info-filled .card-body { color: color-mix(in oklab, var(--dz-info-700) 36%, var(--dz-contrast)); }
+
+.card-success-filled {
+  background: var(--dz-gradient-soft-success, var(--dz-success-50));
+  border-color: var(--dz-success-500);
+  color: var(--dz-contrast);
+}
+.card-success-filled .card-body { color: color-mix(in oklab, var(--dz-success-700) 36%, var(--dz-contrast)); }
+
+.card-danger-filled {
+  background: var(--dz-gradient-soft-danger, var(--dz-danger-50));
+  border-color: var(--dz-danger-500);
+  color: var(--dz-contrast);
+}
+.card-danger-filled .card-body { color: color-mix(in oklab, var(--dz-danger-700) 36%, var(--dz-contrast)); }
+
+.card-warning-filled {
+  background: var(--dz-gradient-soft-warning, var(--dz-warning-50));
+  border-color: var(--dz-warning-500);
+  color: var(--dz-contrast);
+}
+.card-warning-filled .card-body { color: color-mix(in oklab, var(--dz-warning-700) 36%, var(--dz-contrast)); }
+
+.card-dark-filled {
+  background: var(--dz-gradient-soft-dark, var(--dz-dark-50));
+  border-color: var(--dz-dark-700);
+  color: var(--dz-contrast);
+}
+.card-dark-filled .card-body { color: color-mix(in oklab, var(--dz-dark-700) 28%, var(--dz-contrast)); }
+
+/* -------------------------
+   Small utilities
+   ------------------------- */
+.card .badge {
+  font-weight:600;
+  padding:.25rem .45rem;
+  border-radius:6px;
+}
+
+/* when surface is light ensure text contrast on filled cards */
+.card-primary-filled .card-header,
+.card-secondary-filled .card-header,
+.card-info-filled .card-header,
+.card-success-filled .card-header,
+.card-danger-filled .card-header,
+.card-warning-filled .card-header,
+.card-dark-filled .card-header {
+  color: color-mix(in oklab, var(--dz-contrast) 80%, #000);
+}
+
+/* Responsive: stack card footer vertically on small screens */
+@media (max-width:520px){
+  .card-footer { flex-direction:column; align-items:stretch; }
+}

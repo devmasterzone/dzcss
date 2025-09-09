@@ -1,0 +1,144 @@
+/* tokens (fallbacks if not already set) */
+  :root{
+    --dz-breadcrumb-gap: 10px;
+    --dz-breadcrumb-sep: 12px;
+    --dz-breadcrumb-radius: 8px;
+
+    --dz-primary: #5c6af0;
+    --dz-success: #16c47f;
+    --dz-danger:  #f43f5e;
+    --dz-warning: #f59e0b;
+    --dz-dark:    #374151;
+
+    --dz-contrast: #0b0f1a;
+    --dz-muted: #6b7280;
+    --dz-surface: #fff;
+    --dz-border: rgba(11,15,26,0.06);
+
+    /* chevron color fallback */
+    --dz-breadcrumb-color: var(--dz-muted);
+    --dz-breadcrumb-hover: color-mix(in srgb, var(--dz-contrast) 12%, transparent);
+  }
+
+  /* wrapper */
+  .dz-breadcrumb-wrap { margin: .5rem 0 1rem; }
+
+  /* base breadcrumb (list) */
+  .breadcrumb {
+    display:flex;
+    flex-wrap:nowrap;      /* single-line unless it overflows (we allow horizontal scroll) */
+    align-items:center;
+    gap: var(--dz-breadcrumb-gap);
+    font-size: .92rem;
+    list-style:none;
+    padding:0;
+    margin:0;
+    overflow-x:auto;       /* gracefully scroll when truncated */
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: none; /* hide firefox scrollbar */
+  }
+  .breadcrumb::-webkit-scrollbar { height:6px; }
+  .breadcrumb::-webkit-scrollbar-thumb { background: rgba(0,0,0,0.06); border-radius: 6px; }
+
+  .breadcrumb li { display:flex; align-items:center; gap:8px; white-space:nowrap; }
+
+  /* crumb link or static item */
+  .crumb {
+    display:inline-flex;
+    align-items:center;
+    gap:.5rem;
+    color: var(--dz-breadcrumb-color);
+    text-decoration:none;
+    padding: .28rem .5rem;
+    border-radius: 6px;
+    transition: color .14s ease, background .14s ease, transform .06s ease;
+    min-width: 0; /* enable truncation on .crumb-label */
+  }
+
+  .crumb:hover,
+  .crumb:focus {
+    color: var(--dz-contrast);
+    background: var(--dz-breadcrumb-hover);
+    outline: none;
+    transform: translateY(-1px);
+  }
+
+  /* icon sizing */
+  .breadcrumb .icon { width:16px; height:16px; display:inline-block; flex:0 0 16px; color:currentColor; }
+
+  /* separator (chevron) — using inline SVG so color follows currentColor */
+/* Separator (arrow icon) */
+.breadcrumb .separator {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 6px;
+  flex: 0 0 auto;
+  color: inherit;
+}
+.breadcrumb .separator svg {
+  width: 14px;
+  height: 14px;
+  opacity: 0.6;
+}
+
+
+
+  /* current page */
+  .crumb-current,
+  .breadcrumb li[aria-current="page"] .crumb-label,
+  .breadcrumb li[aria-current="page"] > span.crumb-label {
+    font-weight:700;
+    color: var(--dz-contrast);
+  }
+  .crumb-current { background: transparent; transform:none; }
+
+  /* label truncation: allow label to shrink and show ellipsis if space is tight */
+  .crumb-label {
+    display:inline-block;
+    max-width: 240px;      /* default max width */
+    overflow:hidden;
+    text-overflow:ellipsis;
+    white-space:nowrap;
+    vertical-align:middle;
+  }
+
+  /* responsive: reduce label max-width and allow more truncation on smaller screens */
+  @media (max-width:900px){
+    .crumb-label { max-width: 160px; }
+  }
+  @media (max-width:520px){
+    .crumb-label { max-width: 100px; font-size:.88rem; }
+    .breadcrumb { gap:8px; }
+  }
+
+  /* color variants — only change link/separator color */
+  .breadcrumb-primary { --dz-breadcrumb-color: var(--dz-primary); }
+  .breadcrumb-success { --dz-breadcrumb-color: var(--dz-success); }
+  .breadcrumb-danger  { --dz-breadcrumb-color: var(--dz-danger); }
+  .breadcrumb-warning { --dz-breadcrumb-color: var(--dz-warning); }
+  .breadcrumb-dark    { --dz-breadcrumb-color: var(--dz-dark); }
+  .breadcrumb-muted   { --dz-breadcrumb-color: var(--dz-muted); }
+
+  /* hover tweaks for colored variants (subtle darkening) */
+  .breadcrumb-primary .crumb:hover { background: color-mix(in srgb, var(--dz-primary) 8%, transparent); }
+  .breadcrumb-success .crumb:hover { background: color-mix(in srgb, var(--dz-success) 8%, transparent); }
+  .breadcrumb-danger  .crumb:hover { background: color-mix(in srgb, var(--dz-danger) 8%, transparent); }
+  .breadcrumb-warning .crumb:hover { background: color-mix(in srgb, var(--dz-warning) 8%, transparent); }
+  .breadcrumb-dark .crumb:hover    { background: color-mix(in srgb, var(--dz-dark) 6%, transparent); }
+  .breadcrumb-muted .crumb:hover   { background: color-mix(in srgb, var(--dz-muted) 6%, transparent); }
+
+  /* focus-visible (keyboard users) */
+  .crumb:focus-visible {
+    box-shadow: 0 0 0 4px rgba(88,136,255,0.12);
+    border-radius:6px;
+  }
+
+  /* accessible keyboard target: make li focusable for touch-screen readers (optional) */
+  .breadcrumb li:focus-within { outline: none; }
+
+  /* optional: compact "pill" style you can toggle */
+  .breadcrumb.breadcrumb-pill .crumb {
+    padding: .28rem .6rem;
+    border-radius: 9999px;
+  }
